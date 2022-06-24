@@ -12,7 +12,7 @@ create procedure stpCategoryC(
 delimiter //
 create procedure stpCategoryR()
 	begin 
-		select name from category where idCatalogStatus = 1;
+		select idCategory, name from category where idCatalogStatus = 1;
 	end
 //
 
@@ -36,20 +36,20 @@ create procedure stpCategoryD(
 	end 
 //
 
-call cjestilos.stpCategoryC('Polos');
-call cjestilos.stpCategoryC('Poleras');
-call cjestilos.stpCategoryC('Jeans');
-call cjestilos.stpCategoryC('Blusas');
-call cjestilos.stpCategoryC('Vestidos');
-call cjestilos.stpCategoryC('Enterizos');
-call cjestilos.stpCategoryC('Chompas');
-call cjestilos.stpCategoryC('Shorts');
-call cjestilos.stpCategoryC('Joggers');
-call cjestilos.stpCategoryC('Toreros');
-call cjestilos.stpCategoryC('Baggi');
+call stpCategoryC('Polos');
+call stpCategoryC('Poleras');
+call stpCategoryC('Jeans');
+call stpCategoryC('Blusas');
+call stpCategoryC('Vestidos');
+call stpCategoryC('Enterizos');
+call stpCategoryC('Chompas');
+call stpCategoryC('Shorts');
+call stpCategoryC('Joggers');
+call stpCategoryC('Toreros');
+call stpCategoryC('Baggi');
 
-call cjestilos.stpCategoryC('Faldas');
-call cjestilos.stpCategoryC('Bustieres');
-call cjestilos.stpCategoryC('Pantalones');
-call cjestilos.stpCategoryC('Tutus');
-call cjestilos.stpCategoryC('Capas');
+call stpCategoryC('Faldas');
+call stpCategoryC('Bustieres');
+call stpCategoryC('Pantalones');
+call stpCategoryC('Tutus');
+call stpCategoryC('Capas');
