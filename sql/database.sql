@@ -1,4 +1,4 @@
-drop database if exists cjestilos;
-create database if not exists cjestilos;
-use cjestilos;
+drop database if exists pos;
+create database if not exists pos;
+use pos;
 

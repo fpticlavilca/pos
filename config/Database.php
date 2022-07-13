@@ -1,6 +1,6 @@
 <?php
   const server = "localhost";
-  const user = "root";
+  const username = "root";
   const password = "";
   const database = "pos";
   const charset = "utf-8";

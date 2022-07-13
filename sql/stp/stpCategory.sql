@@ -1,7 +1,7 @@
 /*PROCEDURE CRUD CATEGORY*/
 
 delimiter //
-create procedure stpCategoryC(
+create procedure stpCCategory(
 		in name_param varchar(35)
     )
 	begin 
@@ -10,14 +10,14 @@ create procedure stpCategoryC(
 //
 
 delimiter //
-create procedure stpCategoryR()
+create procedure stpRCategory()
 	begin 
 		select idCategory, name from category where idCatalogStatus = 1;
 	end
 //
 
 delimiter //
-create procedure stpCategoryU(
+create procedure stpUCategory(
 		in idCategory_param int, 
 		in name_param varchar(35)
     )
@@ -27,7 +27,7 @@ create procedure stpCategoryU(
 //
 
 delimiter //
-create procedure stpCategoryD(
+create procedure stpDCategory(
 		in idCatalogStatus_param int,
 		in idCategory_param int
     )
@@ -36,20 +36,23 @@ create procedure stpCategoryD(
 	end 
 //
 
-call stpCategoryC('Polos');
-call stpCategoryC('Poleras');
-call stpCategoryC('Jeans');
-call stpCategoryC('Blusas');
-call stpCategoryC('Vestidos');
-call stpCategoryC('Enterizos');
-call stpCategoryC('Chompas');
-call stpCategoryC('Shorts');
-call stpCategoryC('Joggers');
-call stpCategoryC('Toreros');
-call stpCategoryC('Baggi');
 
-call stpCategoryC('Faldas');
-call stpCategoryC('Bustieres');
-call stpCategoryC('Pantalones');
-call stpCategoryC('Tutus');
-call stpCategoryC('Capas');
+
+call stpCCategory('Polos');
+call stpCCategory('Poleras');
+call stpCCategory('Jeans');
+call stpCCategory('Blusas');
+call stpCCategory('Vestidos');
+call stpCCategory('Enterizos');
+call stpCCategory('Chompas');
+call stpCCategory('Shorts');
+call stpCCategory('Joggers');
+call stpCCategory('Toreros');
+call stpCCategory('Baggi');
+
+call stpCCategory('Faldas');
+call stpCCategory('Bustieres');
+call stpCCategory('Pantalones');
+call stpCCategory('Tutus');
+call stpCCategory('Capas');
+call stpRCategory();

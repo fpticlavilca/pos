@@ -1,5 +1,5 @@
 /*PROCEDURE CRUD CATALOG TAG*/
-use cjestilos;
+use pos;
 
 delimiter //
 create procedure stpCatalogTagC(
