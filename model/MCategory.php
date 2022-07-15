@@ -1,11 +1,11 @@
 <?php
     require_once "../lib/Connection.php";
-    class MCategory{
-        private $connection;
-        private $pdo;
+    require_once "../interface/InterfaceCRUDS.php";
+    require_once "Model.php";
+
+    class MCategory extends Model implements InterfaceCRUDS {
         function __construct(){
-            $this->connection = new Connection();
-            $this->pdo = $this->connection->getPDO();
+            parent::__construct();
         }
 
         public function stpCCategory($name_param){
@@ -46,11 +46,35 @@
         public function stpSCategory($name_param){
 
         }
-        public function console($statement_param){
+        public function console($statement_param): string
+        {
             return "Affect row: " .  $statement_param->rowCount();
         }
 
 
+        public function stpC($name_param): string
+        {
+            // TODO: Implement stpC() method.
+        }
 
+        public function stpR()
+        {
+            // TODO: Implement stpR() method.
+        }
+
+        public function stpU($id_param, $name_param): string
+        {
+            // TODO: Implement stpU() method.
+        }
+
+        public function stpD($idCatalogStatus_param, $id_param): string
+        {
+            // TODO: Implement stpD() method.
+        }
+
+        public function stpS($id_param): string
+        {
+            // TODO: Implement stpS() method.
+        }
     }
 ?>
