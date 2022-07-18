@@ -36,6 +36,14 @@ create procedure stpDCategory(
 	end 
 //
 
+delimiter //
+create procedure stpSCategory(
+    in name_param varchar(35)
+)
+begin
+    select idCategory, name from category where name like concat('%',name_param,'%');
+end //
+
 
 
 call stpCCategory('Polos');
