@@ -29,7 +29,7 @@
             return $array;
         }
 
-        public function stpU($id_param, $name_param): string
+        public function stpU($idCategory_param, $name_param): string
         {
             $statement = $this->pdo->prepare("call stpUCategory(?,?)");
             $statement->bindParam(1,$idCategory_param);

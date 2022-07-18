@@ -26,7 +26,8 @@ if($request == "stpRCategory"){
     echo json_encode($array_response);
     die();
 }
-if($request == "stpUCategory"){
+if($request == "stpU"){
+
     $idCategory_param = $_GET["idCategory_param"];
     $name_param = $_GET["name_param"];
     echo $mcategory->stpU($idCategory_param,$name_param);
