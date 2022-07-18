@@ -10,7 +10,6 @@
 
         public function stpC($name_param): string
         {
-
             $statement = $this->pdo->prepare("call stpCCategory(?)");
             $statement->bindParam(1,$name_param);
             $statement->execute();
