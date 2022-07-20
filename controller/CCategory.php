@@ -4,22 +4,28 @@ $mcategory = new MCategory();
 $request = $_GET['request'];
 
 if($request == "stpC"){
+
     if(empty($_GET['name_param'])){
         $array_response = array('status' => false,'msg' => 'Error: no data');
     }
     else {
         $name_param = $_GET['name_param'];
-        $array_response = array('status' => true, 'msg' => $mcategory->stpC($name_param));
+
+        $array = $mcategory->stpC($name_param);
+        $array_response = array('status' => false, 'data' => '');
+
+        if(!empty($array)){
+            $array_response = array('status' => true, 'data' => $array);
+        }
     }
-    echo json_encode($array_response);
+    echo json_encode($array_response,JSON_FORCE_OBJECT);
     die();
 }
+
 if($request == "stpR"){
     $array_response = array('status' => false, 'data' => '');
-    $array = $mcategory->stpR();
-    if(!empty($array)){
-        $array_response['status'] = true;
-        $array_response['data'] = $array;
+    if(!empty($mcategory->stpR())){
+        $array_response = array('status' => true, 'data' => $mcategory->stpR());
     }
     echo json_encode($array_response);
     die();
@@ -31,7 +37,16 @@ if($request == "stpU"){
     else{
         $idCategory_param = $_GET["idCategory_param"];
         $name_param = $_GET["name_param"];
-        echo $mcategory->stpU($idCategory_param,$name_param);
+
+        $array = $mcategory->stpU($idCategory_param,$name_param);
+        $array_response = array('status'=>false, 'data' => '');
+
+        if(!empty($array)){
+            $array_response = array('status'=> true, 'data' => $array);
+        }
+
+        echo json_encode($array_response,JSON_FORCE_OBJECT);
+
         die();
     }
 

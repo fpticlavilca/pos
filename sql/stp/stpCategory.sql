@@ -1,11 +1,13 @@
 /*PROCEDURE CRUD CATEGORY*/
 
+drop procedure if exists stpCCategory;
 delimiter //
 create procedure stpCCategory(
 		in name_param varchar(35)
     )
 	begin 
 		insert into category(name,idCatalogStatus) values (name_param,1);
+		select idCategory, name from category where idCategory = LAST_INSERT_ID();
     end
 //
 
@@ -15,14 +17,16 @@ create procedure stpRCategory()
 		select idCategory, name from category where idCatalogStatus = 1;
 	end
 //
-
+drop procedure stpUCategory;
 delimiter //
 create procedure stpUCategory(
 		in idCategory_param int, 
 		in name_param varchar(35)
     )
 	begin
+	    set @lastUpdateId = idCategory_param;
 		update category set name = name_param where idCategory = idCategory_param;
+		select idCategory, name from category where idCategory = @lastUpdateId;
 	end
 //
 

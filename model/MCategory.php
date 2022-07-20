@@ -7,43 +7,54 @@
         function __construct(){
             parent::__construct();
         }
-
-        public function stpC($name_param): string
+        public function stpC($name_param): array
         {
+            $array = array();
             $statement = $this->pdo->prepare("call stpCCategory(?)");
             $statement->bindParam(1,$name_param);
             $statement->execute();
-            return $this->console($statement, __FUNCTION__);
+
+            while($obj = $statement->fetch(PDO::FETCH_OBJ)){
+                array_push($array,$obj);
+            }
+            return $array;
+
         }
 
-        public function stpR()
+        public function stpR():array
         {
             $array = array();
             $statement = $this->pdo->prepare("call stpRCategory()");
             $statement->setFetchMode(PDO::FETCH_ASSOC);
             $statement->execute();
+
             while($obj =  $statement->fetch()){
                 array_push($array,$obj);
             }
             return $array;
         }
 
-        public function stpU($idCategory_param, $name_param): string
+        public function stpU($idCategory_param, $name_param): array
         {
+            $array = array();
             $statement = $this->pdo->prepare("call stpUCategory(?,?)");
             $statement->bindParam(1,$idCategory_param);
             $statement->bindParam(2,$name_param);
             $statement->execute();
-            return $this->console($statement,__FUNCTION__);
+
+            while($obj = $statement->fetch(PDO::FETCH_OBJ)){
+                array_push($array,$obj);
+            }
+            return $array;
         }
 
-        public function stpD($idCatalogStatus_param, $id_param): string
+        public function stpD($idCatalogStatus_param, $id_param): array
         {
             $statement = $this->pdo->prepare("call stpDCategory(?,?)");
             $statement->bindParam(1,$idCatalogStatus_param);
             $statement->bindParam(2,$idCategory_param);
             $statement->execute();
-            return $this->console($statement,__FUNCTION__);
+
         }
 
         public function stpS($name_param)
