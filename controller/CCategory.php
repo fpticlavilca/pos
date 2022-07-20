@@ -58,7 +58,15 @@ if($request == "stpD"){
     else{
         $idCatalogStatus_param = $_GET["idCatalogStatus_param"];
         $idCategory_param = $_GET["idCategory_param"];
-        echo $mcategory->stpD($idCatalogStatus_param,$idCategory_param);
+        $array = $mcategory->stpD($idCatalogStatus_param,$idCategory_param);
+
+        $array_response = array('status' => false, 'data' => '');
+
+        if(!empty($array)){
+            $array_response = array('status' => true, 'data' => $array);
+        }
+
+        echo json_encode($array_response,JSON_FORCE_OBJECT);
     }
 
 }

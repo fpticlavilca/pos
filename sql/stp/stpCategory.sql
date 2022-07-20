@@ -24,12 +24,12 @@ create procedure stpUCategory(
 		in name_param varchar(35)
     )
 	begin
-	    set @lastUpdateId = idCategory_param;
 		update category set name = name_param where idCategory = idCategory_param;
-		select idCategory, name from category where idCategory = @lastUpdateId;
+		select idCategory, name from category where idCategory = idCategory_param;
 	end
 //
 
+drop procedure if exists tpDCategory;
 delimiter //
 create procedure stpDCategory(
 		in idCatalogStatus_param int,
@@ -37,6 +37,7 @@ create procedure stpDCategory(
     )
 	begin
 		update category set idCatalogStatus = idCatalogStatus_param where idCategory = idCategory_param;
+		select idCategory, name from category where idCategory = idCategory_param;
 	end 
 //
 

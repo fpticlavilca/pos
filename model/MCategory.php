@@ -50,10 +50,15 @@
 
         public function stpD($idCatalogStatus_param, $id_param): array
         {
+            $array = array();
             $statement = $this->pdo->prepare("call stpDCategory(?,?)");
             $statement->bindParam(1,$idCatalogStatus_param);
             $statement->bindParam(2,$idCategory_param);
             $statement->execute();
+
+            while($obj = $statement->fetch(PDO::FETCH_OBJ)){
+                array_push($array,$obj);
+            }
 
         }
 
