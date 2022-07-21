@@ -48,7 +48,7 @@
             return $array;
         }
 
-        public function stpD($idCatalogStatus_param, $id_param): array
+        public function stpD($idCatalogStatus_param, $idCategory_param): array
         {
             $array = array();
             $statement = $this->pdo->prepare("call stpDCategory(?,?)");
@@ -59,7 +59,7 @@
             while($obj = $statement->fetch(PDO::FETCH_OBJ)){
                 array_push($array,$obj);
             }
-
+            return $array;
         }
 
         public function stpS($name_param)

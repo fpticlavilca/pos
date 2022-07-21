@@ -79,10 +79,8 @@ if($request == "stpS"){
         $array_response = array('status' => false, ' data'=> '');
         $array = $mcategory->stpS($name_param);
         if(!empty($array)){
-            $array_response['status'] = true;
-            $array_response['data'] = $array;
+            $array_response = array('status' => true, 'data' => $array);
         }
-
         echo json_encode($array_response);
         die();
     }
